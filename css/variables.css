@@ -1,0 +1,28 @@
+:root {
+    /* Color Palette */
+    --cream: #FAF7F0;
+    --cream-deep: #F1EBDD;
+    --sage: #8DC63F;
+    --forest: #0B5E32;
+    --brown: #5C3A21;
+    --sky: #3B9BD9;
+    --ink: #24261F;
+    --shadow-soft: rgba(11, 94, 50, 0.15);
+    
+    /* Typography */
+    --font-heading: 'Clash Display', sans-serif;
+    --font-body: 'General Sans', sans-serif;
+    
+    /* Spacing & Border Radius */
+    --radius-lg: 24px;
+    --radius-xl: 40px;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    
+    /* Shadows */
+    --clay-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6), 4px 4px 12px var(--shadow-soft);
+    --clay-shadow-hover: -4px -4px 8px rgba(255, 255, 255, 0.8), 6px 6px 16px var(--shadow-soft);
+}
