@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEL Plastics - Reimagining the Future</title>
-    
+
     <!-- Fonts -->
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500&display=swap" rel="stylesheet">
-    
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500&display=swap"
+        rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sections.css">
-    
+
     <!-- Lenis CSS -->
     <style>
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto; }
-        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-        .lenis.lenis-stopped { overflow: hidden; }
-        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
     </style>
 </head>
+
 <body>
     <!-- Grain Overlay -->
     <div class="grain-overlay"></div>
@@ -51,19 +68,23 @@
             </div>
 
             <div class="seed-animation-wrapper">
-                <svg viewBox="0 0 200 200" class="seed-svg" fill="none" stroke="var(--sage)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="40" y1="160" x2="160" y2="160" class="ground-line" stroke="var(--brown)" stroke-width="2" />
-                    
+                <svg viewBox="0 0 200 200" class="seed-svg" fill="none" stroke="var(--sage)" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="40" y1="160" x2="160" y2="160" class="ground-line" stroke="var(--brown)"
+                        stroke-width="2" />
+
                     <g class="sprout-group">
                         <path class="sprout-path sprout-stem" d="M 100 148 Q 90 100 100 50" />
-                        <path class="sprout-path sprout-leaf leaf-1" d="M 96 100 C 50 110 40 70 40 70 C 60 60 96 90 96 100 Z" />
-                        <path class="sprout-path sprout-leaf leaf-2" d="M 100 70 C 140 80 150 40 150 40 C 130 30 100 60 100 70 Z" />
+                        <path class="sprout-path sprout-leaf leaf-1"
+                            d="M 96 100 C 50 110 40 70 40 70 C 60 60 96 90 96 100 Z" />
+                        <path class="sprout-path sprout-leaf leaf-2"
+                            d="M 100 70 C 140 80 150 40 150 40 C 130 30 100 60 100 70 Z" />
                     </g>
-                    
+
                     <ellipse cx="100" cy="148" rx="8" ry="12" fill="var(--brown)" stroke="none" class="seed-element" />
                 </svg>
             </div>
-            
+
             <div class="preloader-counter magnetic">0%</div>
         </div>
     </section>
@@ -72,7 +93,9 @@
     <section id="brandfilm" class="section brandfilm-section">
         <div class="video-container">
             <video id="brand-video" muted playsinline crossorigin="anonymous" preload="auto">
-                <source src="https://res.cloudinary.com/dtctcaxxr/video/upload/v1782998580/Plastic_bottle_becomes_flower_vase_202607021922_ntnhil.mp4" type="video/mp4">
+                <source
+                    src="https://res.cloudinary.com/dtctcaxxr/video/upload/v1783034145/Plastic_bottle_becomes_flower_vase_202607030514_nkujgs.mp4"
+                    type="video/mp4">
             </video>
         </div>
         <div class="brandfilm-ui">
@@ -86,430 +109,524 @@
 
     <!-- Main Content wrapper for Lenis -->
     <main>
-            <!-- Hero Section -->
-            <section id="hero" class="section hero-section">
-                <div class="hero-logo-wrapper">
-                    <img src="assets/images/trLogo.png" alt="TEL Plastics Logo" class="hero-logo magnetic" />
-                </div>
+        <!-- Hero Section -->
+        <section id="hero" class="section hero-section">
+            <div class="hero-logo-wrapper">
+                <img src="assets/images/trLogo.png" alt="TEL Plastics Logo" class="hero-logo magnetic" />
+            </div>
 
-                <div class="hero-content">
-                    <div class="hero-eyebrow">RECYCLED. REIMAGINED. RELIABLE.</div>
-                    <h1 class="hero-headline">What The World Throws Away, We Build Life Around.</h1>
-                    <div class="hero-subheadline-wrapper">
-                        <p class="hero-subheadline">TEL Plastics turns discarded plastic into furniture and everyday essentials — engineered for real homes, priced for real life, without ever compromising on quality.</p>
-                        <div class="hero-ctas">
-                            <button class="btn-primary magnetic" data-target="process">See The Journey</button>
-                            <button class="btn-secondary magnetic" data-target="products">View Our Work</button>
-                        </div>
+            <div class="hero-content">
+                <div class="hero-eyebrow">RECYCLED. REIMAGINED. RELIABLE.</div>
+                <h1 class="hero-headline">What The World Throws Away, We Build Life Around.</h1>
+                <div class="hero-subheadline-wrapper">
+                    <p class="hero-subheadline">TEL Plastics turns discarded plastic into furniture and everyday
+                        essentials — engineered for real homes, priced for real life, without ever compromising on
+                        quality.</p>
+                    <div class="hero-ctas">
+                        <button class="btn-primary magnetic" data-target="process">See The Journey</button>
+                        <button class="btn-secondary magnetic" data-target="products">View Our Work</button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Bush style forest leaves -->
-                <div class="hero-leaves">
-                    <div class="hero-bush hero-bush-left">
-                        <svg class="bush-leaf bush-leaf-1" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                        <svg class="bush-leaf bush-leaf-2" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                        <svg class="bush-leaf bush-leaf-3" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                        <svg class="bush-leaf bush-leaf-4" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                    </div>
-
-                    <div class="hero-bush hero-bush-right">
-                        <svg class="bush-leaf bush-leaf-1" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                        <svg class="bush-leaf bush-leaf-2" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                        <svg class="bush-leaf bush-leaf-3" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                        <svg class="bush-leaf bush-leaf-4" viewBox="0 0 300 300" width="100%" height="100%">
-                          <g class="breeze-group">
-                              <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
-                              <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
-                              <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
-                          </g>
-                        </svg>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Our Process Section -->
-            <section id="process" class="section process-section">
-                <!-- Floating leaf particles (ambient background with wrappers for non-conflicting hover) -->
-                <div class="process-particles">
-                    <div class="particle p1"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
-                    <div class="particle p2"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
-                    <div class="particle p3"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
-                    <div class="particle p4"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
-                    <div class="particle p5"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
-                    <div class="particle p6"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
-                    <div class="particle p7"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
-                    <div class="particle p8"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
-                    <div class="particle p9"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
-                    <div class="particle p10"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
-                    <div class="particle p11"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
-                    <div class="particle p12"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
-                </div>
-
-                <!-- Section Title -->
-                <div class="process-header">
-                    <span class="process-eyebrow">FROM WASTE TO WORTH</span>
-                    <h2 class="process-title">Our Process</h2>
-                </div>
-
-                <!-- The Growth Path -->
-                <div class="process-vine-container">
-                    <!-- Redesigned organic vine SVG (stretching from absolute top-left to bottom-right) -->
-                    <svg class="process-vine-svg" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
-                        <!-- Thicker primary vine path (gentler slope exiting at Y=420) -->
-                        <path class="vine-main" 
-                              d="M 0,0 C 200,60 300,80 450,180 C 600,280 700,300 900,350 C 1050,380 1100,400 1200,420"
-                              stroke="var(--sage)" stroke-width="16" stroke-linecap="round" />
-                        <!-- Parallel decorative shadow vine for thickness and natural texture -->
-                        <path class="vine-shadow"
-                              d="M 0,6 C 200,66 300,86 450,186 C 600,286 700,306 900,356 C 1050,386 1100,406 1200,426"
-                              stroke="var(--forest)" stroke-width="5" stroke-linecap="round" opacity="0.3" />
-                        <!-- Budding leaf branches sprouting off the main vine down to the hangers -->
-                        <path class="vine-branch branch-1" d="M 144,45 L 144,105" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
-                        <path class="vine-branch branch-2" d="M 360,120 L 360,180" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
-                        <path class="vine-branch branch-3" d="M 576,248 L 576,308" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
-                        <path class="vine-branch branch-4" d="M 792,319 L 792,379" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
-                        <path class="vine-branch branch-5" d="M 1008,380 L 1008,440" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
+            <!-- Bush style forest leaves -->
+            <div class="hero-leaves">
+                <div class="hero-bush hero-bush-left">
+                    <svg class="bush-leaf bush-leaf-1" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
                     </svg>
-
-                    <!-- Step 1: Collect (placed diagonally near top-left) -->
-                    <div class="process-step step-1" data-step="1">
-                        <div class="step-hanger">
-                            <div class="step-pod">
-                                <div class="step-glow"></div>
-                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20,55 C20,55 25,40 30,35 C35,30 40,32 40,38 L40,50" />
-                                    <path d="M60,55 C60,55 55,40 50,35 C45,30 40,32 40,38" />
-                                    <path d="M20,55 Q40,65 60,55" />
-                                    <rect x="35" y="18" width="10" height="18" rx="2" />
-                                    <rect x="37" y="14" width="6" height="6" rx="1" />
-                                </svg>
-                                <span class="step-number">01</span>
-                            </div>
-                        </div>
-                        <div class="step-text">
-                            <h3 class="step-label">Collect</h3>
-                            <p class="step-caption">Every piece starts as something someone else let go of.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 2: Sort -->
-                    <div class="process-step step-2" data-step="2">
-                        <div class="step-hanger">
-                            <div class="step-pod">
-                                <div class="step-glow"></div>
-                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="40" cy="25" r="8" />
-                                    <path d="M32,30 L18,55" />
-                                    <path d="M40,33 L40,58" />
-                                    <path d="M48,30 L62,55" />
-                                    <circle cx="18" cy="58" r="4" />
-                                    <circle cx="40" cy="61" r="4" />
-                                    <circle cx="62" cy="58" r="4" />
-                                </svg>
-                                <span class="step-number">02</span>
-                            </div>
-                        </div>
-                        <div class="step-text">
-                            <h3 class="step-label">Sort</h3>
-                            <p class="step-caption">Sorted by hand and by care, not just by category.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Shred (middle) -->
-                    <div class="process-step step-3" data-step="3">
-                        <div class="step-hanger">
-                            <div class="step-pod">
-                                <div class="step-glow"></div>
-                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="40,15 50,30 30,30" />
-                                    <polygon points="25,28 35,43 15,43" />
-                                    <polygon points="55,28 65,43 45,43" />
-                                    <path d="M20,50 L30,65" />
-                                    <path d="M40,45 L40,65" />
-                                    <path d="M60,50 L50,65" />
-                                </svg>
-                                <span class="step-number">03</span>
-                            </div>
-                        </div>
-                        <div class="step-text">
-                            <h3 class="step-label">Shred</h3>
-                            <p class="step-caption">Broken down to its rawest form, ready to be reborn.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 4: Mold -->
-                    <div class="process-step step-4" data-step="4">
-                        <div class="step-hanger">
-                            <div class="step-pod">
-                                <div class="step-glow"></div>
-                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15,20 L15,60 L65,60 L65,20" />
-                                    <path d="M25,60 C25,60 30,35 40,30 C50,35 55,60 55,60" />
-                                    <path d="M15,15 L15,25" />
-                                    <path d="M65,15 L65,25" />
-                                    <path d="M12,15 L18,15" />
-                                    <path d="M62,15 L68,15" />
-                                </svg>
-                                <span class="step-number">04</span>
-                            </div>
-                        </div>
-                        <div class="step-text">
-                            <h3 class="step-label">Mold</h3>
-                            <p class="step-caption">Shaped with precision into something built to last.</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 5: Deliver (bottom-right) -->
-                    <div class="process-step step-5" data-step="5">
-                        <div class="step-hanger">
-                            <div class="step-pod">
-                                <div class="step-glow"></div>
-                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M25,30 L25,60 L55,60 L55,30" />
-                                    <path d="M20,60 L20,68" />
-                                    <path d="M60,60 L60,68" />
-                                    <path d="M25,30 C25,30 35,20 40,20 C45,20 55,30 55,30" />
-                                    <path d="M58,18 L65,25 C65,25 60,15 55,12 Z" fill="var(--sage)" stroke="var(--forest)" stroke-width="1.5" />
-                                    <path d="M52,22 L58,18" />
-                                </svg>
-                                <span class="step-number">05</span>
-                            </div>
-                        </div>
-                        <div class="step-text">
-                            <h3 class="step-label">Deliver</h3>
-                            <p class="step-caption">Finished. Functional. Far from waste.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Product Showcase Section -->
-            <section id="products" class="section products-section">
-                <!-- Ambient drifting blobs -->
-                <div class="products-bg-blobs">
-                    <div class="blob b1"></div>
-                    <div class="blob b2"></div>
+                    <svg class="bush-leaf bush-leaf-2" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
+                    </svg>
+                    <svg class="bush-leaf bush-leaf-3" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
+                    </svg>
+                    <svg class="bush-leaf bush-leaf-4" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
+                    </svg>
                 </div>
 
-                <div class="products-header">
-                    <span class="products-eyebrow">DESIGNED TO LAST</span>
-                    <h2 class="products-title">Product Showcase</h2>
+                <div class="hero-bush hero-bush-right">
+                    <svg class="bush-leaf bush-leaf-1" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
+                    </svg>
+                    <svg class="bush-leaf bush-leaf-2" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
+                    </svg>
+                    <svg class="bush-leaf bush-leaf-3" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
+                    </svg>
+                    <svg class="bush-leaf bush-leaf-4" viewBox="0 0 300 300" width="100%" height="100%">
+                        <g class="breeze-group">
+                            <path class="bush-leaf-dark" d="M80,220 C60,150 100,50 260,40 C220,120 170,180 80,220 Z" />
+                            <path class="bush-leaf-light" d="M80,220 C60,150 100,50 260,40 C170,60 110,120 80,220 Z" />
+                            <path class="bush-leaf-stem" d="M70,240 C80,200 110,130 190,85" />
+                        </g>
+                    </svg>
                 </div>
+            </div>
+        </section>
 
-                <!-- Pinned Horizontal Scroll container -->
-                <div class="products-slider-container">
-                    <div class="products-track">
-                        
-                        <!-- Card 1: Flagship (The Leaf Chair) -->
-                        <div class="product-card flagship-card magnetic" data-index="1">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <video class="product-video" src="https://res.cloudinary.com/dtctcaxxr/video/upload/v1783003180/Outdoor_lounge_chair_rotates_202607022039_tuaqnd.mp4" autoplay muted loop playsinline></video>
-                                    <!-- Embossed Leaf Marker's Mark -->
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Flagship</span>
-                                    <h3 class="product-name">The Leaf Chair</h3>
-                                    <p class="product-desc">Seamless ergonomic form, molded with plant-inspired vents. Sage & cream.</p>
-                                </div>
-                            </div>
+        <!-- Our Process Section -->
+        <section id="process" class="section process-section">
+            <!-- Floating leaf particles (ambient background with wrappers for non-conflicting hover) -->
+            <div class="process-particles">
+                <div class="particle p1"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" />
+                    </svg></div>
+                <div class="particle p2"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" />
+                    </svg></div>
+                <div class="particle p3"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" />
+                    </svg></div>
+                <div class="particle p4"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" />
+                    </svg></div>
+                <div class="particle p5"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" />
+                    </svg></div>
+                <div class="particle p6"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" />
+                    </svg></div>
+                <div class="particle p7"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" />
+                    </svg></div>
+                <div class="particle p8"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" />
+                    </svg></div>
+                <div class="particle p9"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" />
+                    </svg></div>
+                <div class="particle p10"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" />
+                    </svg></div>
+                <div class="particle p11"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" />
+                    </svg></div>
+                <div class="particle p12"><svg class="particle-inner" viewBox="0 0 20 30">
+                        <path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" />
+                    </svg></div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="process-header">
+                <span class="process-eyebrow">FROM WASTE TO WORTH</span>
+                <h2 class="process-title">Our Process</h2>
+            </div>
+
+            <!-- The Growth Path -->
+            <div class="process-vine-container">
+                <!-- Redesigned organic vine SVG (stretching from absolute top-left to bottom-right) -->
+                <svg class="process-vine-svg" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
+                    <!-- Thicker primary vine path (gentler slope exiting at Y=420) -->
+                    <path class="vine-main"
+                        d="M 0,0 C 200,60 300,80 450,180 C 600,280 700,300 900,350 C 1050,380 1100,400 1200,420"
+                        stroke="var(--sage)" stroke-width="16" stroke-linecap="round" />
+                    <!-- Parallel decorative shadow vine for thickness and natural texture -->
+                    <path class="vine-shadow"
+                        d="M 0,6 C 200,66 300,86 450,186 C 600,286 700,306 900,356 C 1050,386 1100,406 1200,426"
+                        stroke="var(--forest)" stroke-width="5" stroke-linecap="round" opacity="0.3" />
+                    <!-- Budding leaf branches sprouting off the main vine down to the hangers -->
+                    <path class="vine-branch branch-1" d="M 144,45 L 144,105" stroke="var(--sage)" stroke-width="4"
+                        stroke-linecap="round" />
+                    <path class="vine-branch branch-2" d="M 360,120 L 360,180" stroke="var(--sage)" stroke-width="4"
+                        stroke-linecap="round" />
+                    <path class="vine-branch branch-3" d="M 576,248 L 576,308" stroke="var(--sage)" stroke-width="4"
+                        stroke-linecap="round" />
+                    <path class="vine-branch branch-4" d="M 792,319 L 792,379" stroke="var(--sage)" stroke-width="4"
+                        stroke-linecap="round" />
+                    <path class="vine-branch branch-5" d="M 1008,380 L 1008,440" stroke="var(--sage)" stroke-width="4"
+                        stroke-linecap="round" />
+                </svg>
+
+                <!-- Step 1: Collect (placed diagonally near top-left) -->
+                <div class="process-step step-1" data-step="1">
+                    <div class="step-hanger">
+                        <div class="step-pod">
+                            <div class="step-glow"></div>
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20,55 C20,55 25,40 30,35 C35,30 40,32 40,38 L40,50" />
+                                <path d="M60,55 C60,55 55,40 50,35 C45,30 40,32 40,38" />
+                                <path d="M20,55 Q40,65 60,55" />
+                                <rect x="35" y="18" width="10" height="18" rx="2" />
+                                <rect x="37" y="14" width="6" height="6" rx="1" />
+                            </svg>
+                            <span class="step-number">01</span>
                         </div>
-
-                        <!-- Card 2: Modular Storage Crate -->
-                        <div class="product-card magnetic" data-index="2">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_crate.png" alt="Modular Storage Crate - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Storage</span>
-                                    <h3 class="product-name">Modular Crate</h3>
-                                    <p class="product-desc">Interlocking stackable design featuring a premium woven-texture lid.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Communal Dining Table -->
-                        <div class="product-card magnetic" data-index="3">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_table.png" alt="Communal Dining Table - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Dining</span>
-                                    <h3 class="product-name">Communal Table</h3>
-                                    <p class="product-desc">Rectangular surface with rounded corners and embossed leaf grain.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Garden Bench -->
-                        <div class="product-card magnetic" data-index="4">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_bench.png" alt="Garden Bench - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Outdoor</span>
-                                    <h3 class="product-name">Garden Bench</h3>
-                                    <p class="product-desc">Curved two-seater bench detailed with a classic slatted backrest.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 5: Study Stool -->
-                        <div class="product-card magnetic" data-index="5">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_stool.png" alt="Study Stool - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Seating</span>
-                                    <h3 class="product-name">Study Stool</h3>
-                                    <p class="product-desc">A compact circular stool crafted with a single continuous leg.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 6: Kids' Furniture Set -->
-                        <div class="product-card magnetic" data-index="6">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_kids.png" alt="Kids' Furniture Set - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Playroom</span>
-                                    <h3 class="product-name">Kids' Play Set</h3>
-                                    <p class="product-desc">Playful, rounded small chair-and-table pair in soft pastel tones.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 7: Woven-Style Laundry Basket -->
-                        <div class="product-card magnetic" data-index="7">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_laundry.png" alt="Woven-Style Laundry Basket - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Utilities</span>
-                                    <h3 class="product-name">Woven Basket</h3>
-                                    <p class="product-desc">Tall laundry bin with an incredibly detailed basket-weave texture.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 8: Kitchen Container Set -->
-                        <div class="product-card magnetic" data-index="8">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_container.png" alt="Kitchen Container Set - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Kitchen</span>
-                                    <h3 class="product-name">Container Set</h3>
-                                    <p class="product-desc">Nested space-saving food containers with soft push-fit lids.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 9: Bucket & Mug Set -->
-                        <div class="product-card magnetic" data-index="9">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_bucket.png" alt="Bucket & Mug Set - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Utility</span>
-                                    <h3 class="product-name">Bucket & Mug</h3>
-                                    <p class="product-desc">Heavy-duty utility matching set with detailed handle embossing.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 10: Multipurpose Bin -->
-                        <div class="product-card magnetic" data-index="10">
-                            <div class="card-inner">
-                                <div class="pedestal-glow"></div>
-                                <div class="product-media-wrapper">
-                                    <img class="product-image" src="assets/images/product_bin.png" alt="Multipurpose Bin - Recycled furniture piece by TEL Plastics">
-                                    <div class="makers-mark"><svg viewBox="0 0 20 20"><path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)" opacity="0.45"/></svg></div>
-                                </div>
-                                <div class="product-info">
-                                    <span class="product-badge">Utility</span>
-                                    <h3 class="product-name">Pedal Bin</h3>
-                                    <p class="product-desc">Soft rounded pedal-lid waste bin for home and office spaces.</p>
-                                </div>
-                            </div>
-                        </div>
-
+                    </div>
+                    <div class="step-text">
+                        <h3 class="step-label">Collect</h3>
+                        <p class="step-caption">Every piece starts as something someone else let go of.</p>
                     </div>
                 </div>
-            </section>
-            <section id="story" class="section placeholder-section"><h2>Our Story</h2></section>
-            <section id="sustainability" class="section placeholder-section"><h2>Sustainability</h2></section>
-            <section id="reach" class="section placeholder-section"><h2>Global Reach</h2></section>
-            <section id="contact" class="section placeholder-section"><h2>Contact</h2></section>
+
+                <!-- Step 2: Sort -->
+                <div class="process-step step-2" data-step="2">
+                    <div class="step-hanger">
+                        <div class="step-pod">
+                            <div class="step-glow"></div>
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="40" cy="25" r="8" />
+                                <path d="M32,30 L18,55" />
+                                <path d="M40,33 L40,58" />
+                                <path d="M48,30 L62,55" />
+                                <circle cx="18" cy="58" r="4" />
+                                <circle cx="40" cy="61" r="4" />
+                                <circle cx="62" cy="58" r="4" />
+                            </svg>
+                            <span class="step-number">02</span>
+                        </div>
+                    </div>
+                    <div class="step-text">
+                        <h3 class="step-label">Sort</h3>
+                        <p class="step-caption">Sorted by hand and by care, not just by category.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Shred (middle) -->
+                <div class="process-step step-3" data-step="3">
+                    <div class="step-hanger">
+                        <div class="step-pod">
+                            <div class="step-glow"></div>
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="40,15 50,30 30,30" />
+                                <polygon points="25,28 35,43 15,43" />
+                                <polygon points="55,28 65,43 45,43" />
+                                <path d="M20,50 L30,65" />
+                                <path d="M40,45 L40,65" />
+                                <path d="M60,50 L50,65" />
+                            </svg>
+                            <span class="step-number">03</span>
+                        </div>
+                    </div>
+                    <div class="step-text">
+                        <h3 class="step-label">Shred</h3>
+                        <p class="step-caption">Broken down to its rawest form, ready to be reborn.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4: Mold -->
+                <div class="process-step step-4" data-step="4">
+                    <div class="step-hanger">
+                        <div class="step-pod">
+                            <div class="step-glow"></div>
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15,20 L15,60 L65,60 L65,20" />
+                                <path d="M25,60 C25,60 30,35 40,30 C50,35 55,60 55,60" />
+                                <path d="M15,15 L15,25" />
+                                <path d="M65,15 L65,25" />
+                                <path d="M12,15 L18,15" />
+                                <path d="M62,15 L68,15" />
+                            </svg>
+                            <span class="step-number">04</span>
+                        </div>
+                    </div>
+                    <div class="step-text">
+                        <h3 class="step-label">Mold</h3>
+                        <p class="step-caption">Shaped with precision into something built to last.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5: Deliver (bottom-right) -->
+                <div class="process-step step-5" data-step="5">
+                    <div class="step-hanger">
+                        <div class="step-pod">
+                            <div class="step-glow"></div>
+                            <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M25,30 L25,60 L55,60 L55,30" />
+                                <path d="M20,60 L20,68" />
+                                <path d="M60,60 L60,68" />
+                                <path d="M25,30 C25,30 35,20 40,20 C45,20 55,30 55,30" />
+                                <path d="M58,18 L65,25 C65,25 60,15 55,12 Z" fill="var(--sage)" stroke="var(--forest)"
+                                    stroke-width="1.5" />
+                                <path d="M52,22 L58,18" />
+                            </svg>
+                            <span class="step-number">05</span>
+                        </div>
+                    </div>
+                    <div class="step-text">
+                        <h3 class="step-label">Deliver</h3>
+                        <p class="step-caption">Finished. Functional. Far from waste.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Product Showcase Section -->
+        <section id="products" class="section products-section">
+            <!-- Ambient drifting blobs -->
+            <div class="products-bg-blobs">
+                <div class="blob b1"></div>
+                <div class="blob b2"></div>
+            </div>
+
+            <div class="products-header">
+                <span class="products-eyebrow">DESIGNED TO LAST</span>
+                <h2 class="products-title">Product Showcase</h2>
+            </div>
+
+            <!-- Pinned Horizontal Scroll container -->
+            <div class="products-slider-container">
+                <div class="products-track">
+
+                    <!-- Card 1: Flagship (The Leaf Chair) -->
+                    <div class="product-card flagship-card magnetic" data-index="1">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <video class="product-video"
+                                    src="https://res.cloudinary.com/dtctcaxxr/video/upload/v1783003180/Outdoor_lounge_chair_rotates_202607022039_tuaqnd.mp4"
+                                    autoplay muted loop playsinline></video>
+                                <!-- Embossed Leaf Marker's Mark -->
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Flagship</span>
+                                <h3 class="product-name">The Leaf Chair</h3>
+                                <p class="product-desc">Seamless ergonomic form, molded with plant-inspired vents. Sage
+                                    & cream.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Modular Storage Crate -->
+                    <div class="product-card magnetic" data-index="2">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_crate.png"
+                                    alt="Modular Storage Crate - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Storage</span>
+                                <h3 class="product-name">Modular Crate</h3>
+                                <p class="product-desc">Interlocking stackable design featuring a premium woven-texture
+                                    lid.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Communal Dining Table -->
+                    <div class="product-card magnetic" data-index="3">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_table.png"
+                                    alt="Communal Dining Table - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Dining</span>
+                                <h3 class="product-name">Communal Table</h3>
+                                <p class="product-desc">Rectangular surface with rounded corners and embossed leaf
+                                    grain.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Garden Bench -->
+                    <div class="product-card magnetic" data-index="4">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_bench.png"
+                                    alt="Garden Bench - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Outdoor</span>
+                                <h3 class="product-name">Garden Bench</h3>
+                                <p class="product-desc">Curved two-seater bench detailed with a classic slatted
+                                    backrest.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Study Stool -->
+                    <div class="product-card magnetic" data-index="5">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_stool.png"
+                                    alt="Study Stool - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C18,10 16,20 10,28Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Seating</span>
+                                <h3 class="product-name">Study Stool</h3>
+                                <p class="product-desc">A compact circular stool crafted with a single continuous leg.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Kids' Furniture Set -->
+                    <div class="product-card magnetic" data-index="6">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_kids.png"
+                                    alt="Kids' Furniture Set - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Playroom</span>
+                                <h3 class="product-name">Kids' Play Set</h3>
+                                <p class="product-desc">Playful, rounded small chair-and-table pair in soft pastel
+                                    tones.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Woven-Style Laundry Basket -->
+                    <div class="product-card magnetic" data-index="7">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_laundry.png"
+                                    alt="Woven-Style Laundry Basket - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Utilities</span>
+                                <h3 class="product-name">Woven Basket</h3>
+                                <p class="product-desc">Tall laundry bin with an incredibly detailed basket-weave
+                                    texture.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Kitchen Container Set -->
+                    <div class="product-card magnetic" data-index="8">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_container.png"
+                                    alt="Kitchen Container Set - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Kitchen</span>
+                                <h3 class="product-name">Container Set</h3>
+                                <p class="product-desc">Nested space-saving food containers with soft push-fit lids.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9: Bucket & Mug Set -->
+                    <div class="product-card magnetic" data-index="9">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_bucket.png"
+                                    alt="Bucket & Mug Set - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Utility</span>
+                                <h3 class="product-name">Bucket & Mug</h3>
+                                <p class="product-desc">Heavy-duty utility matching set with detailed handle embossing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 10: Multipurpose Bin -->
+                    <div class="product-card magnetic" data-index="10">
+                        <div class="card-inner">
+                            <div class="pedestal-glow"></div>
+                            <div class="product-media-wrapper">
+                                <img class="product-image" src="assets/images/product_bin.png"
+                                    alt="Multipurpose Bin - Recycled furniture piece by TEL Plastics">
+                                <div class="makers-mark"><svg viewBox="0 0 20 20">
+                                        <path d="M10,18 C5,13 3,7 10,2 C17,7 15,13 10,18Z" fill="var(--forest)"
+                                            opacity="0.45" />
+                                    </svg></div>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-badge">Utility</span>
+                                <h3 class="product-name">Pedal Bin</h3>
+                                <p class="product-desc">Soft rounded pedal-lid waste bin for home and office spaces.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="story" class="section placeholder-section">
+            <h2>Our Story</h2>
+        </section>
+        <section id="sustainability" class="section placeholder-section">
+            <h2>Sustainability</h2>
+        </section>
+        <section id="reach" class="section placeholder-section">
+            <h2>Global Reach</h2>
+        </section>
+        <section id="contact" class="section placeholder-section">
+            <h2>Contact</h2>
+        </section>
 
     </main>
 
@@ -519,7 +636,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/split-type"></script>
-    
+
     <script src="js/main.js"></script>
     <script src="js/preloader.js"></script>
     <script src="js/brandfilm.js"></script>
@@ -527,4 +644,5 @@
     <script src="js/process.js"></script>
     <script src="js/products.js"></script>
 </body>
+
 </html>
