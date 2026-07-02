@@ -42,12 +42,17 @@ heroScrollTl.to('.hero-logo', {
 
 
 // Hero Section Entrance Animation - Triggered after Brand Film
-window.startHeroAnimation = () => {
+window.startHeroAnimation = (skipLogo = false) => {
     // Enter animation for the wrapper and children elements
     const enterTl = gsap.timeline();
     
-    enterTl.to('.hero-logo-wrapper', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
-           .to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.6')
+    if (!skipLogo) {
+        enterTl.to('.hero-logo-wrapper', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+    }
+    
+    const nextOffset = skipLogo ? 0 : '-=0.6';
+    
+    enterTl.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, nextOffset)
            .to(headline.chars, {
                opacity: 1,
                y: 0,
