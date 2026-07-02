@@ -184,6 +184,7 @@ particles.forEach((p, i) => {
 
 // 9. Dynamic Hover Interaction for floating particles
 let mousePos = { x: -999, y: -999 };
+const processSection = document.querySelector('.process-section');
 
 if (processSection) {
     processSection.addEventListener('mousemove', (e) => {

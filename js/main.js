@@ -50,15 +50,15 @@ if (!isReducedMotion) {
         const magnetics = document.querySelectorAll('.magnetic, .scroll-rail-dots li, a, button');
         
         magnetics.forEach((elem) => {
-            // clear old listeners if re-running
-            const newElem = elem.cloneNode(true);
-            if(elem.parentNode) elem.parentNode.replaceChild(newElem, elem);
+            // Prevent duplicate binding and destroying event listeners
+            if (elem.dataset.cursorBound === "true") return;
+            elem.dataset.cursorBound = "true";
             
-            newElem.addEventListener('mouseenter', () => {
+            elem.addEventListener('mouseenter', () => {
                 cursorBlob.classList.add('hover-active');
                 
-                if(newElem.classList.contains('magnetic')) {
-                    gsap.to(newElem, {
+                if(elem.classList.contains('magnetic')) {
+                    gsap.to(elem, {
                         scale: 1.05,
                         duration: 0.3,
                         ease: "back.out(1.7)"
@@ -66,13 +66,13 @@ if (!isReducedMotion) {
                 }
             });
             
-            newElem.addEventListener('mousemove', (e) => {
-                if(newElem.classList.contains('magnetic')) {
-                    const rect = newElem.getBoundingClientRect();
+            elem.addEventListener('mousemove', (e) => {
+                if(elem.classList.contains('magnetic')) {
+                    const rect = elem.getBoundingClientRect();
                     const x = e.clientX - (rect.left + rect.width / 2);
                     const y = e.clientY - (rect.top + rect.height / 2);
                     
-                    gsap.to(newElem, {
+                    gsap.to(elem, {
                         x: x * 0.2,
                         y: y * 0.2,
                         duration: 0.3,
@@ -81,11 +81,11 @@ if (!isReducedMotion) {
                 }
             });
 
-            newElem.addEventListener('mouseleave', () => {
+            elem.addEventListener('mouseleave', () => {
                 cursorBlob.classList.remove('hover-active');
                 
-                if(newElem.classList.contains('magnetic')) {
-                    gsap.to(newElem, {
+                if(elem.classList.contains('magnetic')) {
+                    gsap.to(elem, {
                         x: 0,
                         y: 0,
                         scale: 1,
@@ -93,11 +93,6 @@ if (!isReducedMotion) {
                         ease: "elastic.out(1, 0.3)"
                     });
                 }
-            });
-            
-            // For click forwarding
-            newElem.addEventListener('click', (e) => {
-                if(elem.onclick) elem.onclick(e);
             });
         });
     };
