@@ -170,8 +170,161 @@
                 </div>
             </section>
 
-            <!-- Placeholders for upcoming sections -->
-            <section id="process" class="section placeholder-section"><h2>Our Process</h2></section>
+            <!-- Our Process Section -->
+            <section id="process" class="section process-section">
+                <!-- Floating leaf particles (ambient background with wrappers for non-conflicting hover) -->
+                <div class="process-particles">
+                    <div class="particle p1"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
+                    <div class="particle p2"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
+                    <div class="particle p3"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
+                    <div class="particle p4"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
+                    <div class="particle p5"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
+                    <div class="particle p6"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
+                    <div class="particle p7"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
+                    <div class="particle p8"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
+                    <div class="particle p9"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
+                    <div class="particle p10"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--brown)" /></svg></div>
+                    <div class="particle p11"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--forest)" /></svg></div>
+                    <div class="particle p12"><svg class="particle-inner" viewBox="0 0 20 30"><path d="M10,28 C4,20 2,10 10,2 C18,10 16,20 10,28Z" fill="var(--sage)" /></svg></div>
+                </div>
+
+                <!-- Section Title -->
+                <div class="process-header">
+                    <span class="process-eyebrow">FROM WASTE TO WORTH</span>
+                    <h2 class="process-title">Our Process</h2>
+                </div>
+
+                <!-- The Growth Path -->
+                <div class="process-vine-container">
+                    <!-- Redesigned organic vine SVG (stretching from absolute top-left to bottom-right) -->
+                    <svg class="process-vine-svg" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none">
+                        <!-- Thicker primary vine path (gentler slope exiting at Y=420) -->
+                        <path class="vine-main" 
+                              d="M 0,0 C 200,60 300,80 450,180 C 600,280 700,300 900,350 C 1050,380 1100,400 1200,420"
+                              stroke="var(--sage)" stroke-width="16" stroke-linecap="round" />
+                        <!-- Parallel decorative shadow vine for thickness and natural texture -->
+                        <path class="vine-shadow"
+                              d="M 0,6 C 200,66 300,86 450,186 C 600,286 700,306 900,356 C 1050,386 1100,406 1200,426"
+                              stroke="var(--forest)" stroke-width="5" stroke-linecap="round" opacity="0.3" />
+                        <!-- Budding leaf branches sprouting off the main vine down to the hangers -->
+                        <path class="vine-branch branch-1" d="M 144,45 L 144,105" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
+                        <path class="vine-branch branch-2" d="M 360,120 L 360,180" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
+                        <path class="vine-branch branch-3" d="M 576,248 L 576,308" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
+                        <path class="vine-branch branch-4" d="M 792,319 L 792,379" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
+                        <path class="vine-branch branch-5" d="M 1008,380 L 1008,440" stroke="var(--sage)" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+
+                    <!-- Step 1: Collect (placed diagonally near top-left) -->
+                    <div class="process-step step-1" data-step="1">
+                        <div class="step-hanger">
+                            <div class="step-pod">
+                                <div class="step-glow"></div>
+                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20,55 C20,55 25,40 30,35 C35,30 40,32 40,38 L40,50" />
+                                    <path d="M60,55 C60,55 55,40 50,35 C45,30 40,32 40,38" />
+                                    <path d="M20,55 Q40,65 60,55" />
+                                    <rect x="35" y="18" width="10" height="18" rx="2" />
+                                    <rect x="37" y="14" width="6" height="6" rx="1" />
+                                </svg>
+                                <span class="step-number">01</span>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-label">Collect</h3>
+                            <p class="step-caption">Every piece starts as something someone else let go of.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Sort -->
+                    <div class="process-step step-2" data-step="2">
+                        <div class="step-hanger">
+                            <div class="step-pod">
+                                <div class="step-glow"></div>
+                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="40" cy="25" r="8" />
+                                    <path d="M32,30 L18,55" />
+                                    <path d="M40,33 L40,58" />
+                                    <path d="M48,30 L62,55" />
+                                    <circle cx="18" cy="58" r="4" />
+                                    <circle cx="40" cy="61" r="4" />
+                                    <circle cx="62" cy="58" r="4" />
+                                </svg>
+                                <span class="step-number">02</span>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-label">Sort</h3>
+                            <p class="step-caption">Sorted by hand and by care, not just by category.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Shred (middle) -->
+                    <div class="process-step step-3" data-step="3">
+                        <div class="step-hanger">
+                            <div class="step-pod">
+                                <div class="step-glow"></div>
+                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="40,15 50,30 30,30" />
+                                    <polygon points="25,28 35,43 15,43" />
+                                    <polygon points="55,28 65,43 45,43" />
+                                    <path d="M20,50 L30,65" />
+                                    <path d="M40,45 L40,65" />
+                                    <path d="M60,50 L50,65" />
+                                </svg>
+                                <span class="step-number">03</span>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-label">Shred</h3>
+                            <p class="step-caption">Broken down to its rawest form, ready to be reborn.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Mold -->
+                    <div class="process-step step-4" data-step="4">
+                        <div class="step-hanger">
+                            <div class="step-pod">
+                                <div class="step-glow"></div>
+                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15,20 L15,60 L65,60 L65,20" />
+                                    <path d="M25,60 C25,60 30,35 40,30 C50,35 55,60 55,60" />
+                                    <path d="M15,15 L15,25" />
+                                    <path d="M65,15 L65,25" />
+                                    <path d="M12,15 L18,15" />
+                                    <path d="M62,15 L68,15" />
+                                </svg>
+                                <span class="step-number">04</span>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-label">Mold</h3>
+                            <p class="step-caption">Shaped with precision into something built to last.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Deliver (bottom-right) -->
+                    <div class="process-step step-5" data-step="5">
+                        <div class="step-hanger">
+                            <div class="step-pod">
+                                <div class="step-glow"></div>
+                                <svg class="step-icon" viewBox="0 0 80 80" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M25,30 L25,60 L55,60 L55,30" />
+                                    <path d="M20,60 L20,68" />
+                                    <path d="M60,60 L60,68" />
+                                    <path d="M25,30 C25,30 35,20 40,20 C45,20 55,30 55,30" />
+                                    <path d="M58,18 L65,25 C65,25 60,15 55,12 Z" fill="var(--sage)" stroke="var(--forest)" stroke-width="1.5" />
+                                    <path d="M52,22 L58,18" />
+                                </svg>
+                                <span class="step-number">05</span>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-label">Deliver</h3>
+                            <p class="step-caption">Finished. Functional. Far from waste.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section id="products" class="section placeholder-section"><h2>Product Showcase</h2></section>
             <section id="story" class="section placeholder-section"><h2>Our Story</h2></section>
             <section id="sustainability" class="section placeholder-section"><h2>Sustainability</h2></section>
@@ -191,5 +344,6 @@
     <script src="js/preloader.js"></script>
     <script src="js/brandfilm.js"></script>
     <script src="js/hero.js"></script>
+    <script src="js/process.js"></script>
 </body>
 </html>

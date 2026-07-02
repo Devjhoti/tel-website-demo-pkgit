@@ -81,7 +81,7 @@ function startLogoMorph() {
     // Set the logo to perfectly overlap the exact center of the screen
     gsap.set('.hero-logo-wrapper', {
         x: (centerX - startX) - 8, // Nudge 8px left
-        y: (centerY - startY) + 10, // Nudge 10px down
+        y: (centerY - startY) + 8, // Nudge 10px down
         scale: 4.15, // Split between 4.2 (too small) and 4.5 (too big)
         opacity: 1
     });
