@@ -1,85 +1,173 @@
-// Preloader Animation Redesign
+// Preloader Animation Redesign — "The Metamorphosis"
 
-// Setup SVG paths dynamically by calculating their true length
-const sproutPaths = document.querySelectorAll('.sprout-path');
-sproutPaths.forEach(path => {
-    const length = path.getTotalLength();
-    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
-});
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Setup SVG paths dynamically by calculating their true length
+    const metaPaths = document.querySelectorAll('.metamorphosis-path');
+    metaPaths.forEach(path => {
+        const length = path.getTotalLength();
+        gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+    });
 
-// Initial States
-gsap.set('.ground-line', { scaleX: 0, transformOrigin: 'center' });
-// Seed starts high up, stretched vertically for falling motion
-gsap.set('.seed-element', { y: -250, scaleY: 1.2, scaleX: 0.8, transformOrigin: 'center bottom' });
-// Logo is hidden with a 0-width clip-path
-gsap.set('.preloader-logo', { clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)', opacity: 0 });
+    const leafPaths = document.querySelectorAll('.leaf-path');
+    leafPaths.forEach(path => {
+        const length = path.getTotalLength();
+        gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+    });
 
-const preloaderTL = gsap.timeline({
-    onComplete: () => {
-        if (window.startBrandFilm) window.startBrandFilm();
+    // 2. Initial States
+    gsap.set('.ground-line', { scaleX: 0, transformOrigin: 'center' });
+    gsap.set('.leaf-group', { opacity: 0 });
+    gsap.set('.preloader-brand-logo', { opacity: 0, scale: 0.95 });
+
+    // 3. Dynamically Generate Particles along the outlines
+    const bottlePath = document.querySelector('.bottle-path');
+    const crease1 = document.querySelector('.bottle-crease-1');
+    const crease2 = document.querySelector('.bottle-crease-2');
+
+    const leftLeaf = document.querySelector('.left-leaf');
+    const leftVein = document.querySelector('.left-vein');
+    const rightLeaf = document.querySelector('.right-leaf');
+    const rightVein = document.querySelector('.right-vein');
+    const leafStem = document.querySelector('.leaf-stem');
+
+    const startPoints = [];
+    const endPoints = [];
+    const numParticles = 60;
+    const particles = [];
+    const particlesContainer = document.querySelector('.particles-container');
+
+    // Helper to sample coordinates along an SVG path
+    function samplePoints(path, count, array) {
+        if (!path) return;
+        const len = path.getTotalLength();
+        for (let i = 0; i < count; i++) {
+            const t = count > 1 ? (i / (count - 1)) * 0.98 + 0.01 : 0.5;
+            const pt = path.getPointAtLength(t * len);
+            array.push({ x: pt.x, y: pt.y });
+        }
     }
-});
 
-// 1. Draw the ground line
-preloaderTL.to('.ground-line', { scaleX: 1, duration: 0.4, ease: 'power3.out' }, 0);
+    // Sample 60 starting points along bottle shape & crease details
+    samplePoints(bottlePath, 50, startPoints);
+    samplePoints(crease1, 5, startPoints);
+    samplePoints(crease2, 5, startPoints);
 
-// 2. The seed falls
-preloaderTL.to('.seed-element', { 
-    y: 0, 
-    duration: 0.5, 
-    ease: 'power2.in' 
-}, 0.2);
+    // Sample 60 ending points along leaf shape & stem details
+    samplePoints(leftLeaf, 20, endPoints);
+    samplePoints(leftVein, 5, endPoints);
+    samplePoints(rightLeaf, 20, endPoints);
+    samplePoints(rightVein, 5, endPoints);
+    samplePoints(leafStem, 10, endPoints);
 
-// Seed hits the ground: squash down, then bounce back to normal shape
-preloaderTL.to('.seed-element', {
-    scaleY: 0.6,
-    scaleX: 1.4,
-    duration: 0.15,
-    ease: 'power1.out'
-}, 0.7);
-preloaderTL.to('.seed-element', {
-    scaleY: 1,
-    scaleX: 1,
-    duration: 0.3,
-    ease: 'elastic.out(1.5, 0.4)'
-}, 0.85);
+    // Create particle elements inside the SVG container
+    for (let i = 0; i < numParticles; i++) {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('r', '2.5');
+        circle.setAttribute('fill', 'var(--ink)');
+        circle.setAttribute('opacity', '0');
+        particlesContainer.appendChild(circle);
 
-// 3. The sprout grows while the counter runs
-// Counter animation
-preloaderTL.to('.preloader-counter', {
-    innerText: 100,
-    duration: 1.8,
-    snap: { innerText: 1 },
-    ease: 'power2.inOut'
-}, 1.0);
+        particles.push({
+            element: circle,
+            startX: startPoints[i % startPoints.length].x,
+            startY: startPoints[i % startPoints.length].y,
+            endX: endPoints[i % endPoints.length].x,
+            endY: endPoints[i % endPoints.length].y
+        });
+    }
 
-// Sprout stem shoots up
-preloaderTL.to('.sprout-stem', {
-    strokeDashoffset: 0,
-    duration: 1.0,
-    ease: 'power2.inOut'
-}, 1.0);
+    // 4. GSAP Timeline setup
+    const preloaderTL = gsap.timeline({
+        onComplete: () => {
+            if (window.startBrandFilm) window.startBrandFilm();
+        }
+     });
 
-// Leaves sprout out staggeredly
-preloaderTL.to('.sprout-leaf', {
-    strokeDashoffset: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-    stagger: 0.2
-}, 1.4);
+    // --- Beat 1: The Discard (0.0s -> 0.8s) ---
+    // Draw ground line
+    preloaderTL.to('.ground-line', { scaleX: 1, duration: 0.4, ease: 'power3.out' }, 0);
+    // Draw bottle outline and creases
+    preloaderTL.to('.bottle-path', { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' }, 0.1);
+    preloaderTL.to(['.bottle-crease-1', '.bottle-crease-2'], { strokeDashoffset: 0, duration: 0.4, ease: 'power2.out' }, 0.4);
+    // Squash animation on bottle (crunching feeling)
+    preloaderTL.to('.metamorphosis-svg', { scaleY: 0.9, scaleX: 1.05, transformOrigin: 'center bottom', duration: 0.2, ease: 'power1.inOut' }, 0.6);
+    preloaderTL.to('.metamorphosis-svg', { scaleY: 1, scaleX: 1, duration: 0.2, ease: 'power1.inOut' }, 0.8);
 
-// 4. Reveal the logo with a smooth left-to-right clip-path wipe
-preloaderTL.to('.preloader-logo', {
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-    opacity: 1,
-    duration: 1.2,
-    ease: 'power3.inOut'
-}, 1.2);
+    // --- Beat 2: The Dissolution (0.8s -> 1.8s) ---
+    // Hide bottle drawing
+    preloaderTL.to('.metamorphosis-path', { opacity: 0, duration: 0.15, ease: 'power1.in' }, 0.8);
+    
+    // Counter count up
+    preloaderTL.to('.preloader-counter', {
+        innerText: 100,
+        duration: 2.2,
+        snap: { innerText: 1 },
+        ease: 'power2.inOut',
+        onUpdate: function() {
+            const counter = document.querySelector('.preloader-counter');
+            if (counter) {
+                counter.innerText = Math.round(parseFloat(counter.innerText)) + '%';
+            }
+        }
+    }, 0.8);
 
-// 5. Wipe away the entire preloader section
-preloaderTL.to('.preloader-section', {
-    clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 0%)',
-    duration: 0.8,
-    ease: 'power3.inOut',
-    delay: 0.2
+    // Particles explode from initial positions
+    particles.forEach((p, i) => {
+        preloaderTL.set(p.element, { x: p.startX, y: p.startY, opacity: 1 }, 0.8);
+
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 30 + Math.random() * 40;
+        const midX = p.startX + Math.cos(angle) * dist;
+        const midY = p.startY + Math.sin(angle) * dist;
+
+        preloaderTL.to(p.element, {
+            x: midX,
+            y: midY,
+            fill: 'var(--sage)',
+            duration: 1.0,
+            ease: 'power2.out'
+        }, 0.8 + (i * 0.004));
+    });
+
+    // --- Beat 3: The Rebirth (1.8s -> 3.0s) ---
+    // Particles converge to the leaf outline
+    particles.forEach((p, i) => {
+        preloaderTL.to(p.element, {
+            x: p.endX,
+            y: p.endY,
+            duration: 1.2,
+            ease: 'power3.inOut'
+        }, 1.8 + (i * 0.004));
+    });
+
+    // Reveal vector leaf drawing
+    preloaderTL.to('.leaf-group', { opacity: 1, duration: 0.1 }, 2.8);
+    preloaderTL.to('.leaf-stem', { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' }, 2.8);
+    preloaderTL.to('.leaf-shape', { strokeDashoffset: 0, duration: 0.8, ease: 'power2.out' }, 2.9);
+    preloaderTL.to('.leaf-vein', { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' }, 3.2);
+    
+    // Fill shape with green opacity
+    preloaderTL.to('.leaf-shape', { fillOpacity: 1, duration: 0.6, ease: 'power1.inOut' }, 3.3);
+
+    // Fade out particles and ground line as they lock in
+    preloaderTL.to('.ground-line', { opacity: 0, duration: 0.4 }, 3.3);
+    preloaderTL.to('.particles-container', { opacity: 0, duration: 0.4 }, 3.4);
+
+    // --- Beat 4: The Reveal (3.5s -> 4.5s) ---
+    // Cross-fade the animated leaf to the official logo
+    preloaderTL.to('.preloader-brand-logo', {
+        opacity: 1,
+        scale: 1,
+        duration: 1.0,
+        ease: 'power3.inOut'
+    }, 3.5);
+    preloaderTL.to('.metamorphosis-svg', { opacity: 0, duration: 0.8 }, 3.5);
+
+    // Curtain wipe reveal to show brand film underneath
+    preloaderTL.to('.preloader-section', {
+        clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 0%)',
+        duration: 0.8,
+        ease: 'power3.inOut',
+        delay: 0.2
+    }, 4.5);
 });

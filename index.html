@@ -63,26 +63,36 @@
     <!-- Preloader Section -->
     <section id="preloader" class="section preloader-section">
         <div class="preloader-content">
-            <div class="preloader-brand">
-                <img src="assets/images/trLogo.png" alt="TEL Plastics Logo" class="preloader-logo" />
-            </div>
-
-            <div class="seed-animation-wrapper">
-                <svg viewBox="0 0 200 200" class="seed-svg" fill="none" stroke="var(--sage)" stroke-width="3"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="40" y1="160" x2="160" y2="160" class="ground-line" stroke="var(--brown)"
-                        stroke-width="2" />
-
-                    <g class="sprout-group">
-                        <path class="sprout-path sprout-stem" d="M 100 148 Q 90 100 100 50" />
-                        <path class="sprout-path sprout-leaf leaf-1"
-                            d="M 96 100 C 50 110 40 70 40 70 C 60 60 96 90 96 100 Z" />
-                        <path class="sprout-path sprout-leaf leaf-2"
-                            d="M 100 70 C 140 80 150 40 150 40 C 130 30 100 60 100 70 Z" />
-                    </g>
-
-                    <ellipse cx="100" cy="148" rx="8" ry="12" fill="var(--brown)" stroke="none" class="seed-element" />
-                </svg>
+            <div class="preloader-logo-wrapper">
+                <img src="assets/images/trLogo.png" alt="TEL Plastics Logo" class="preloader-brand-logo" />
+                <div class="preloader-svg-overlay">
+                    <svg viewBox="0 0 200 200" class="metamorphosis-svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Ground line for the bottle to sit on -->
+                        <line x1="30" y1="170" x2="170" y2="170" class="ground-line" stroke="var(--brown)" stroke-width="2" />
+                        
+                        <!-- Bottle outline -->
+                        <path class="metamorphosis-path bottle-path" d="M 92 45 L 108 45 L 108 52 L 92 52 Z M 94 52 L 94 60 L 76 75 Q 75 95 78 110 L 68 125 L 75 145 L 72 169 L 128 169 L 125 145 L 132 125 L 122 110 Q 125 95 124 75 L 106 60 L 106 52" stroke="var(--ink)" stroke-width="3" />
+                        <path class="metamorphosis-path bottle-crease-1" d="M 80 95 L 120 98" stroke="var(--ink)" stroke-width="2" opacity="0.6" />
+                        <path class="metamorphosis-path bottle-crease-2" d="M 72 130 L 118 125" stroke="var(--ink)" stroke-width="2" opacity="0.6" />
+                        
+                        <!-- Container for dynamic particles -->
+                        <g class="particles-container"></g>
+                        
+                        <!-- Leaf outline / morph target -->
+                        <g class="leaf-group" opacity="0">
+                            <!-- Stem -->
+                            <path class="leaf-path leaf-stem" d="M 100 120 Q 98 142 100 160" stroke="var(--brown)" stroke-width="3.5" />
+                            <!-- Left Leaf -->
+                            <path class="leaf-path leaf-shape left-leaf" d="M 100 120 C 70 125 50 95 50 95 C 70 80 100 110 100 120 Z" fill="var(--sage)" fill-opacity="0" stroke="var(--forest)" stroke-width="3" />
+                            <!-- Left Leaf Vein -->
+                            <path class="leaf-path leaf-vein left-vein" d="M 65 102 Q 80 108 95 115" stroke="var(--forest)" stroke-width="2.5" />
+                            <!-- Right Leaf -->
+                            <path class="leaf-path leaf-shape right-leaf" d="M 100 120 C 105 95 150 60 150 60 C 135 50 100 90 100 120 Z" fill="var(--sage)" fill-opacity="0" stroke="var(--forest)" stroke-width="3" />
+                            <!-- Right Leaf Vein -->
+                            <path class="leaf-path leaf-vein right-vein" d="M 105 115 Q 120 90 140 70" stroke="var(--forest)" stroke-width="2.5" />
+                        </g>
+                    </svg>
+                </div>
             </div>
 
             <div class="preloader-counter magnetic">0%</div>

@@ -23,24 +23,39 @@
     height: 100%;
 }
 
-.preloader-brand {
-    height: 60px;
+.preloader-logo-wrapper {
+    position: relative;
+    width: 480px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 2rem;
 }
 
-.preloader-logo {
+.preloader-brand-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 100%;
-    width: auto;
+    object-fit: contain;
+    opacity: 0;
+    z-index: 1;
 }
 
-.seed-animation-wrapper {
-    width: 220px;
-    height: 220px;
-    position: relative;
-    margin-top: 1rem;
+.preloader-svg-overlay {
+    position: absolute;
+    left: 20px; /* Align with the circular mark on the left of trLogo.png */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.seed-svg {
+.metamorphosis-svg {
     width: 100%;
     height: 100%;
     overflow: visible;
