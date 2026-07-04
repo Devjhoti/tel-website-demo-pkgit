@@ -40,10 +40,69 @@ if (!isReducedMotion) {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
         
-        xDot(mouse.x);
-        yDot(mouse.y);
-        xBlob(mouse.x);
-        yBlob(mouse.y);
+        let targetX = mouse.x;
+        let targetY = mouse.y;
+        
+        let nearestDot = null;
+        let minDist = 50; // 50px snap range
+        
+        const activeRail = document.querySelector('.scroll-rail.visible');
+        if (activeRail) {
+            const dots = activeRail.querySelectorAll('.scroll-rail-dots li');
+            dots.forEach(dot => {
+                const rect = dot.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dist = Math.hypot(mouse.x - cx, mouse.y - cy);
+                if (dist < minDist) {
+                    minDist = dist;
+                    nearestDot = dot;
+                }
+            });
+        }
+        
+        if (nearestDot) {
+            const rect = nearestDot.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            
+            // Magnetically pull the cursor towards the dot center (75% snap weight)
+            targetX = cx + (mouse.x - cx) * 0.25;
+            targetY = cy + (mouse.y - cy) * 0.25;
+            
+            const isDotActive = nearestDot.classList.contains('active');
+            
+            // Flexibly translate the dot slightly towards the mouse (retaining active scale)
+            gsap.to(nearestDot, {
+                x: (mouse.x - cx) * 0.35,
+                y: (mouse.y - cy) * 0.35,
+                scale: isDotActive ? 2.2 : 1,
+                duration: 0.2,
+                ease: "power2.out",
+                overwrite: "auto"
+            });
+        } else {
+            // Reset translations on non-hovered dots (retaining active scale)
+            const dots = document.querySelectorAll('.scroll-rail-dots li');
+            dots.forEach(dot => {
+                if (dot.style.transform && dot.style.transform !== 'none') {
+                    const isDotActive = dot.classList.contains('active');
+                    gsap.to(dot, { 
+                        x: 0, 
+                        y: 0, 
+                        scale: isDotActive ? 2.2 : 1, 
+                        duration: 0.4, 
+                        ease: "power2.out", 
+                        overwrite: "auto" 
+                    });
+                }
+            });
+        }
+        
+        xDot(targetX);
+        yDot(targetY);
+        xBlob(targetX);
+        yBlob(targetY);
     });
 
     const setupMagnetics = () => {
@@ -105,36 +164,73 @@ if (!isReducedMotion) {
 // Scroll Progress Rail Logic
 const railDots = document.querySelectorAll('.scroll-rail-dots li');
 
-railDots.forEach((dot) => {
-    const targetId = dot.getAttribute('data-target');
-    
-    // Skip the preloader/intro dot. It shares scroll position 0 with Hero,
-    // so it is handled manually via initial HTML state.
-    if (targetId === 'preloader') return;
+const updateActiveIndicator = () => {
+    const centerY = window.innerHeight / 2;
+    let activeDot = null;
 
-    const targetSection = document.getElementById(targetId);
-    
-    if (targetSection) {
-        ScrollTrigger.create({
-            trigger: targetSection,
-            start: "top center",
-            end: "bottom center",
-            onToggle: self => {
-                if(self.isActive) {
-                    railDots.forEach(d => d.classList.remove('active'));
-                    dot.classList.add('active');
-                }
+    railDots.forEach((dot) => {
+        const targetId = dot.getAttribute('data-target');
+        if (targetId === 'preloader') return;
+
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            const rect = targetSection.getBoundingClientRect();
+            // Section is active if it covers the vertical center of the screen
+            if (rect.top <= centerY && rect.bottom >= centerY) {
+                activeDot = dot;
             }
+        }
+    });
+
+    const railContainer = document.querySelector('.scroll-rail');
+    if (activeDot && railContainer) {
+        railDots.forEach(d => {
+            d.classList.remove('active');
+            gsap.to(d, { scale: 1, duration: 0.4, ease: "power2.out", overwrite: "auto" });
         });
+        activeDot.classList.add('active');
+        gsap.to(activeDot, { scale: 2.2, duration: 0.4, ease: "power2.out", overwrite: "auto" });
+
+        // Check if the current section is a dark greenish area
+        const targetId = activeDot.getAttribute('data-target');
+        const isDarkSection = ['sustainability', 'contact'].includes(targetId);
+        
+        if (isDarkSection) {
+            railContainer.classList.add('contrast-theme');
+        } else {
+            railContainer.classList.remove('contrast-theme');
+        }
     }
-});
+};
+
+// Track changes on smooth scrolling
+lenis.on('scroll', updateActiveIndicator);
+// Initial check on load
+updateActiveIndicator();
 
 railDots.forEach((dot) => {
     dot.addEventListener('click', () => {
         const targetId = dot.getAttribute('data-target');
+        const scrollEasing = (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
+
+        if (targetId === 'hero') {
+            lenis.scrollTo(0, { duration: 1.5, easing: scrollEasing });
+            return;
+        }
+
+        // Process is position:sticky — DOM offset APIs are unreliable.
+        // Hero = 100vh height + 150vh margin-bottom = 250vh total scroll space.
+        // So Process always starts at exactly 2.5× the viewport height.
+        if (targetId === 'process') {
+            lenis.scrollTo(window.innerHeight * 2.5, { duration: 1.5, easing: scrollEasing });
+            return;
+        }
+
+        // All other sections: pass the DOM element directly to Lenis.
+        // This works reliably for non-sticky sections.
         const targetSection = document.getElementById(targetId);
-        if(targetSection) {
-            lenis.scrollTo(targetSection, { duration: 1.5, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        if (targetSection) {
+            lenis.scrollTo(targetSection, { duration: 1.5, easing: scrollEasing });
         }
     });
 });
