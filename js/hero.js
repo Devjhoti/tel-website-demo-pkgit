@@ -46,6 +46,12 @@ window.startHeroAnimation = (skipLogo = false) => {
     // Enter animation for the wrapper and children elements
     const enterTl = gsap.timeline();
     
+    // Set initial compressed states for leaves
+    const leftLeaves = document.querySelectorAll('.hero-bush-left .bush-leaf');
+    const rightLeaves = document.querySelectorAll('.hero-bush-right .bush-leaf');
+    gsap.set(leftLeaves, { opacity: 0, rotation: 65 });
+    gsap.set(rightLeaves, { opacity: 0, rotation: -65 });
+    
     if (!skipLogo) {
         enterTl.to('.hero-logo-wrapper', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
     }
@@ -66,12 +72,42 @@ window.startHeroAnimation = (skipLogo = false) => {
                duration: 1,
                ease: 'power3.out'
            }, '-=0.4');
+
+    // Fanout corner leaves in sync with text entrance
+    const targetRotationsLeft = [-15, 15, 45, 75];
+    const targetRotationsRight = [-15, 15, 45, 75];
+    const targetOpacities = [0.9, 0.75, 0.6, 0.45];
+
+    leftLeaves.forEach((leaf, idx) => {
+        enterTl.to(leaf, {
+            opacity: targetOpacities[idx],
+            rotation: targetRotationsLeft[idx],
+            duration: 1.4,
+            ease: 'back.out(1.3)'
+        }, 1.0); // Triggers exactly when the logo lands (1.5s transition + 1.0s delay = 2.5s)
+    });
+
+    rightLeaves.forEach((leaf, idx) => {
+        enterTl.to(leaf, {
+            opacity: targetOpacities[idx],
+            rotation: targetRotationsRight[idx],
+            duration: 1.4,
+            ease: 'back.out(1.3)'
+        }, 1.0);
+    });
 };
 
 // Hero CTA scrolling
 document.querySelectorAll('.hero-ctas button').forEach(btn => {
     btn.addEventListener('click', () => {
         const targetId = btn.getAttribute('data-target');
+        if (targetId === 'process') {
+            const target = document.getElementById('process');
+            if (target) {
+                lenis.scrollTo(target.offsetTop, { duration: 1.5, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            }
+            return;
+        }
         const target = document.getElementById(targetId);
         if(target) {
             lenis.scrollTo(target, { duration: 1.5, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });

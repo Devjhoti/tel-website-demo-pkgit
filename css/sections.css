@@ -25,18 +25,22 @@
 
 .preloader-logo-wrapper {
     position: relative;
-    width: 480px;
-    height: 240px;
+    width: 90vw;
+    max-width: 600px; /* Increased from 480px to make it bigger */
+    height: auto;
+    aspect-ratio: 2 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
+    overflow: visible; /* Allow shifted logo to overflow right */
 }
 
 .preloader-brand-logo {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-25%, -50%); /* Shift right by 25% to center the leaf-globe mark */
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -46,11 +50,11 @@
 
 .preloader-svg-overlay {
     position: absolute;
-    left: 20px; /* Align with the circular mark on the left of trLogo.png */
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
-    height: 200px;
+    transform: translate(-50%, -50%); /* Centered inside wrapper */
+    width: 41.67%; /* Scales proportionally */
+    height: 83.33%;
     z-index: 2;
     pointer-events: none;
 }
@@ -179,16 +183,16 @@
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    padding-top: 5rem;
+    padding-top: 3.5rem;
     z-index: 10;
     opacity: 0;
     margin-bottom: 150vh; /* Scroll space for scrub animations */
 }
 
 .hero-logo-wrapper {
-    width: 180px;
-    height: 80px; 
-    margin-bottom: 3rem;
+    width: 140px;
+    height: 60px; 
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,10 +228,10 @@
 
 .hero-headline {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 7vw, 7.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 5.5rem);
     color: var(--forest);
     line-height: 1.05;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     clip-path: polygon(0 -20%, 100% -20%, 100% 120%, 0% 120%);
 }
 
@@ -248,7 +252,7 @@
 .hero-subheadline {
     font-size: 1.25rem;
     color: var(--ink);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.8rem;
 }
 
 .hero-ctas {
@@ -330,10 +334,10 @@
 .bush-leaf-stem { stroke: var(--cream-deep); stroke-width: 6; fill: none; stroke-linecap: round; }
 
 /* Fan the stack out */
-.bush-leaf-1 { transform: rotate(-15deg) scale(1); z-index: 4; opacity: 0.18; filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.1)); }
-.bush-leaf-2 { transform: rotate(15deg) scale(0.9) translate(0%, 5%); z-index: 3; opacity: 0.14; filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.05)); }
-.bush-leaf-3 { transform: rotate(45deg) scale(0.75) translate(-10%, 15%); z-index: 2; opacity: 0.1; }
-.bush-leaf-4 { transform: rotate(75deg) scale(0.6) translate(-15%, 25%); z-index: 1; opacity: 0.05; filter: brightness(1.2); }
+.bush-leaf-1 { transform: rotate(-15deg) scale(1); z-index: 4; opacity: 0; filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.1)); }
+.bush-leaf-2 { transform: rotate(15deg) scale(0.9) translate(0%, 5%); z-index: 3; opacity: 0; filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.05)); }
+.bush-leaf-3 { transform: rotate(45deg) scale(0.75) translate(-10%, 15%); z-index: 2; opacity: 0; }
+.bush-leaf-4 { transform: rotate(75deg) scale(0.6) translate(-15%, 25%); z-index: 1; opacity: 0; filter: brightness(1.2); }
 
 /* Scroll Rail override to hide during Brand Film */
 .scroll-rail {
@@ -472,7 +476,7 @@
 
 .process-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
     color: var(--forest);
     line-height: 1.1;
     opacity: 0;
@@ -494,6 +498,10 @@
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.process-mobile-vine-svg {
+    display: none;
 }
 
 .vine-main, .vine-shadow {
@@ -718,7 +726,7 @@
 }
 .products-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
     color: var(--forest);
     line-height: 1.1;
 }
@@ -906,7 +914,7 @@
 
 .story-header-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
     color: var(--forest);
     line-height: 1.1;
     margin-bottom: 0;
@@ -1231,7 +1239,7 @@
 
 .sustain-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
     color: var(--cream);
     line-height: 1.1;
     margin-bottom: 0;
@@ -1618,7 +1626,8 @@
 }
 
 .reach-title {
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
     margin-top: 0.5rem;
     color: var(--forest);
     text-shadow: 0px 2px 4px rgba(11, 94, 50, 0.05);
@@ -2126,7 +2135,8 @@
 }
 
 .contact-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4.8vw, 4.2rem);
     color: var(--cream);
     margin-bottom: var(--spacing-sm);
     line-height: 1.1;
@@ -2586,6 +2596,147 @@ textarea.form-input {
     }
 }
 
+/* Height-based overrides for short viewports (MacBooks, landscape tablets) */
+@media (max-height: 750px) {
+    .hero-section {
+        padding-top: 3.5rem;
+    }
+    .hero-logo-wrapper {
+        margin-bottom: 1.5rem;
+        height: 60px;
+    }
+    .hero-headline {
+        font-size: clamp(2.2rem, 7vh, 4.2rem);
+        margin-bottom: 1rem;
+    }
+    .hero-subheadline {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+    .hero-subheadline-wrapper {
+        max-width: 540px;
+    }
+    .process-header {
+        top: 2.5vh;
+    }
+    .process-vine-container {
+        transform: scale(0.78);
+        transform-origin: center 10%;
+    }
+    
+    .products-header {
+        top: 3vh;
+    }
+    .products-title {
+        font-size: clamp(1.8rem, 4vh, 2.5rem);
+    }
+    .products-slider-container {
+        transform: scale(0.85);
+        transform-origin: center center;
+    }
+    .product-card {
+        width: 290px;
+        height: 430px;
+    }
+    .product-media-wrapper {
+        height: 200px;
+    }
+    .pedestal-glow {
+        width: 150px;
+        height: 150px;
+    }
+    .card-inner {
+        padding: 1.5rem;
+    }
+    .sustain-header {
+        padding-top: 6vh;
+    }
+    .reach-container {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .reach-globe-stage {
+        height: 390px !important;
+        margin: 1rem 0 !important;
+    }
+    .globe-frame {
+        width: 320px !important;
+        height: 320px !important;
+    }
+    .reach-card {
+        width: 270px !important;
+        height: 140px !important;
+    }
+    .reach-card.left-card {
+        left: 60px !important;
+    }
+    .reach-card.right-card {
+        right: 60px !important;
+    }
+    .reach-card .card-content {
+        padding: 1rem 1.2rem !important;
+    }
+    .reach-card .card-badge {
+        font-size: 0.7rem !important;
+    }
+    .reach-card .card-title {
+        font-size: 1.05rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    .reach-card .card-desc {
+        font-size: 0.75rem !important;
+        line-height: 1.35 !important;
+    }
+    .reach-card .card-header-row {
+        margin-bottom: 0.3rem !important;
+    }
+    .process-title,
+    .products-title,
+    .story-header-title,
+    .sustain-title,
+    .reach-title,
+    .contact-title {
+        font-size: clamp(1.8rem, 4vh, 2.5rem) !important;
+    }
+}
+
+/* Width-based overrides for tablets and larger mobiles */
+@media (max-width: 1024px) {
+    .story-layout {
+        flex-direction: column;
+        min-height: auto;
+        padding: 4rem 2rem;
+        gap: 3rem;
+    }
+    .story-sticky-col {
+        flex: none;
+        width: 100%;
+    }
+    .story-video-frame {
+        position: relative;
+        top: auto;
+        max-width: 600px;
+        margin: 0 auto;
+        aspect-ratio: 4 / 3;
+    }
+    .story-vine-container {
+        display: none;
+    }
+    .story-scroll-col {
+        flex: none;
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 2rem;
+    }
+    .story-article {
+        margin-bottom: 3rem;
+    }
+    .story-article:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Width-based overrides for standard mobiles */
 @media (max-width: 768px) {
     .contact-section {
         padding: 5rem 0 3rem;
@@ -2601,5 +2752,206 @@ textarea.form-input {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+    
+    .hero-bush {
+        width: 140px !important;
+        height: 140px !important;
+        bottom: -20px !important;
+    }
+    .hero-bush-left {
+        left: -20px !important;
+    }
+    .hero-bush-right {
+        right: -20px !important;
+    }
+    .hero-headline {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+    .hero-logo-wrapper {
+        width: 140px;
+        height: 60px;
+        margin-bottom: 2rem;
+    }
+    
+    .process-section {
+        position: relative !important;
+        height: auto !important;
+        margin-bottom: 0 !important;
+        padding: 6rem 0 !important;
+    }
+    .process-vine-svg {
+        display: none !important;
+    }
+    .process-mobile-vine-svg {
+        display: block !important;
+        position: absolute;
+        left: 25px;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        height: 100%;
+        z-index: 1;
+    }
+    .process-step {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: calc(100% - 105px) !important;
+        max-width: 340px !important;
+        margin: 4rem 0 4rem 85px !important;
+        transform: none !important;
+        opacity: 0; /* Animated by GSAP */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .process-step::before {
+        content: '';
+        position: absolute;
+        left: -55px; /* Reaches the vertical vine at 30px */
+        top: 60px; /* Centered vertically with 120px pod */
+        width: calc(50% + 55px); /* Extends exactly to pod center */
+        height: 4px;
+        background: var(--sage);
+        transform: scaleX(0);
+        transform-origin: left center;
+        z-index: 1;
+        transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .process-step.active::before {
+        transform: scaleX(1);
+    }
+    .step-hanger {
+        padding-top: 0;
+        position: relative;
+    }
+    .step-hanger::before {
+        display: none !important;
+    }
+    .step-pod {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 0.8rem;
+    }
+    .step-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .step-text {
+        text-align: center;
+    }
+    
+    .products-section {
+        position: relative !important;
+        height: auto !important;
+        padding: 6rem 0 !important;
+        margin-bottom: 0 !important;
+    }
+    .products-header {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        text-align: center !important;
+        margin-bottom: 3rem !important;
+        padding: 0 2rem !important;
+    }
+    .products-slider-container {
+        position: relative !important;
+        height: auto !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+    .products-track {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 4rem !important;
+        transform: none !important;
+        width: 100% !important;
+        padding: 0 2rem !important;
+        margin-top: 0 !important;
+    }
+    .product-card {
+        position: relative !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        height: 420px !important;
+    }
+    .product-media-wrapper {
+        height: 200px !important;
+    }
+    .pedestal-glow {
+        width: 130px !important;
+        height: 130px !important;
+    }
+    .product-card-title {
+        font-size: 1.25rem !important;
+    }
+}
+
+@media (max-height: 600px) {
+    .process-vine-container {
+        transform: scale(0.68) !important;
+        transform-origin: center 10%;
+    }
+    .products-slider-container {
+        transform: scale(0.72) !important;
+        transform-origin: center center;
+    }
+    .products-header {
+        top: 2.5vh !important;
+    }
+    .process-title,
+    .products-title,
+    .story-header-title,
+    .sustain-title,
+    .reach-title,
+    .contact-title {
+        font-size: clamp(1.5rem, 3.8vh, 2.2rem) !important;
+    }
+    .reach-container {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    .reach-globe-stage {
+        height: 300px !important;
+        margin: 0.5rem 0 !important;
+    }
+    .globe-frame {
+        width: 240px !important;
+        height: 240px !important;
+    }
+    .reach-card {
+        width: 230px !important;
+        height: 110px !important;
+    }
+    .reach-card.left-card {
+        left: 120px !important;
+    }
+    .reach-card.right-card {
+        right: 120px !important;
+    }
+    .reach-card .card-content {
+        padding: 0.6rem 0.8rem !important;
+    }
+    .reach-card .card-badge {
+        font-size: 0.65rem !important;
+    }
+    .reach-card .card-title {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+    .reach-card .card-desc {
+        font-size: 0.68rem !important;
+        line-height: 1.25 !important;
+    }
+    .reach-card .card-header-row {
+        margin-bottom: 0.2rem !important;
+    }
+    .reach-desc {
+        display: none !important;
     }
 }

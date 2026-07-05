@@ -1,108 +1,192 @@
 // ========== OUR PROCESS — Redesigned Growth Path ==========
 
-// 1. Calculate true vine path length, shadow path, and branches
-const vineMain = document.querySelector('.vine-main');
-const vineShadow = document.querySelector('.vine-shadow');
-const vineBranches = document.querySelectorAll('.vine-branch');
+let mm = gsap.matchMedia();
 
-if (vineMain) {
-    const vineLength = vineMain.getTotalLength();
-    gsap.set(vineMain, { strokeDasharray: vineLength, strokeDashoffset: vineLength });
-    gsap.set(vineShadow, { strokeDasharray: vineLength, strokeDashoffset: vineLength });
-}
-
-vineBranches.forEach(branch => {
-    const length = branch.getTotalLength();
-    gsap.set(branch, { strokeDasharray: length, strokeDashoffset: length });
-});
-
-// 2. Create the master scroll-scrubbed timeline
-const processTl = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.process-section',
-        start: 'top top',
-        end: '+=300%',
-        scrub: 1.2,
+// DESKTOP & TABLET: Diagonal wave draw timeline with ScrollTrigger
+mm.add("(min-width: 769px)", () => {
+    // 1. Calculate true vine path length, shadow path, and branches
+    const vineMain = document.querySelector('.vine-main');
+    const vineShadow = document.querySelector('.vine-shadow');
+    const vineBranches = document.querySelectorAll('.vine-branch');
+    
+    if (vineMain) {
+        const vineLength = vineMain.getTotalLength();
+        gsap.set(vineMain, { strokeDasharray: vineLength, strokeDashoffset: vineLength });
+        gsap.set(vineShadow, { strokeDasharray: vineLength, strokeDashoffset: vineLength });
     }
-});
-
-// 3. Phase 1: Reveal the header (0% – 10% of scroll)
-processTl.to('.process-eyebrow', {
-    opacity: 1, y: 0, duration: 0.3, ease: 'power2.out'
-}, 0);
-processTl.to('.process-title', {
-    opacity: 1, y: 0, duration: 0.4, ease: 'power2.out'
-}, 0.1);
-
-// 4. Draw the vine progressively across the scroll duration
-if (vineMain) {
-    processTl.to(vineMain, {
-        strokeDashoffset: 0,
-        duration: 4,
-        ease: 'none'
-    }, 0.3);
     
-    processTl.to(vineShadow, {
-        strokeDashoffset: 0,
-        duration: 4,
-        ease: 'none'
-    }, 0.33);
-}
+    vineBranches.forEach(branch => {
+        const length = branch.getTotalLength();
+        gsap.set(branch, { strokeDasharray: length, strokeDashoffset: length });
+    });
 
-// 5. Draw branch lines and bounce-reveal step pods ("fruit bloom") at waypoints
-const steps = document.querySelectorAll('.process-step');
-const stepTimings = [0.4, 1.1, 1.8, 2.5, 3.2]; // Timeline positions matching vine draw progress
-const branchTimings = [0.35, 1.05, 1.75, 2.45, 3.15];
+    // 2. Create the master scroll-scrubbed timeline
+    const processTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.process-section',
+            start: 'top top',
+            end: '+=300%',
+            scrub: 1.2,
+        }
+    });
 
-steps.forEach((step, i) => {
-    const pod = step.querySelector('.step-pod');
-    const glow = step.querySelector('.step-glow');
-    const branch = document.querySelector(`.branch-${i+1}`);
-    
-    // Draw the tiny connecting branch first
-    if (branch) {
-        processTl.to(branch, {
+    // 3. Phase 1: Reveal the header (0% – 10% of scroll)
+    processTl.to('.process-eyebrow', {
+        opacity: 1, y: 0, duration: 0.3, ease: 'power2.out'
+    }, 0);
+    processTl.to('.process-title', {
+        opacity: 1, y: 0, duration: 0.4, ease: 'power2.out'
+    }, 0.1);
+
+    // 4. Draw the vine progressively across the scroll duration
+    if (vineMain) {
+        processTl.to(vineMain, {
             strokeDashoffset: 0,
-            duration: 0.3,
-            ease: 'power1.out'
-        }, branchTimings[i]);
+            duration: 4,
+            ease: 'none'
+        }, 0.3);
+        
+        processTl.to(vineShadow, {
+            strokeDashoffset: 0,
+            duration: 4,
+            ease: 'none'
+        }, 0.33);
     }
-    
-    // Bouncy reveal for the card (fruit pod)
-    // Starting scaled down and slightly rotated, then pop!
-    processTl.to(step, {
-        opacity: 1,
-        scale: 1,
-        rotation: 0,
-        duration: 0.8,
-        ease: 'elastic.out(1.1, 0.4)', // Juicy bounce feel
-    }, stepTimings[i]);
-    
-    // Pulse the soft inner glow on bloom
-    processTl.to(glow, {
-        opacity: 0.35,
-        duration: 0.3,
-        ease: 'power2.out'
-    }, stepTimings[i] + 0.1);
-    
-    processTl.to(glow, {
-        opacity: 0.15,
-        duration: 0.6,
-        ease: 'power1.inOut'
-    }, stepTimings[i] + 0.4);
+
+    // 5. Draw branch lines and bounce-reveal step pods ("fruit bloom") at waypoints
+    const steps = document.querySelectorAll('.process-step');
+    const stepTimings = [0.4, 1.1, 1.8, 2.5, 3.2]; // Timeline positions matching vine draw progress
+    const branchTimings = [0.35, 1.05, 1.75, 2.45, 3.15];
+
+    steps.forEach((step, i) => {
+        const pod = step.querySelector('.step-pod');
+        const glow = step.querySelector('.step-glow');
+        const branch = document.querySelector(`.branch-${i+1}`);
+        
+        // Draw the tiny connecting branch first
+        if (branch) {
+            processTl.to(branch, {
+                strokeDashoffset: 0,
+                duration: 0.3,
+                ease: 'power1.out'
+            }, branchTimings[i]);
+        }
+        
+        // Bouncy reveal for the card (fruit pod)
+        processTl.to(step, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            ease: 'elastic.out(1.1, 0.4)',
+        }, stepTimings[i]);
+        
+        // Pulse the soft inner glow on bloom
+        processTl.to(glow, {
+            opacity: 0.35,
+            duration: 0.3,
+            ease: 'power2.out'
+        }, stepTimings[i] + 0.1);
+        
+        processTl.to(glow, {
+            opacity: 0.15,
+            duration: 0.6,
+            ease: 'power1.inOut'
+        }, stepTimings[i] + 0.4);
+    });
+
+    // 6. Continuous subtle swinging for the step hangers (infinitely loops)
+    const hangers = document.querySelectorAll('.step-hanger');
+    const swingTweens = [];
+    hangers.forEach((hanger, i) => {
+        const tween = gsap.to(hanger, {
+            rotation: (i % 2 === 0 ? 1 : -1) * (1.5 + Math.random() * 1.5),
+            duration: 3 + Math.random() * 2,
+            yoyo: true,
+            repeat: -1,
+            ease: 'sine.inOut',
+            delay: i * 0.4
+        });
+        swingTweens.push(tween);
+    });
+
+    return () => {
+        swingTweens.forEach(t => t.kill());
+    };
 });
 
+// MOBILE: Vertical growing vine on the left and staggered card reveal on the right
+mm.add("(max-width: 768px)", () => {
+    // 1. Reveal process section header
+    gsap.to(['.process-eyebrow', '.process-title'], {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: '.process-header',
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+        }
+    });
 
-// 6. Continuous subtle swinging for the step hangers (infinitely loops)
-const hangers = document.querySelectorAll('.step-hanger');
-hangers.forEach((hanger, i) => {
-    gsap.to(hanger, {
-        rotation: (i % 2 === 0 ? 1 : -1) * (1.5 + Math.random() * 1.5), // Swing range 1.5 to 3.0 degrees
-        duration: 3 + Math.random() * 2, // Varied speeds (3 to 5s cycles)
-        yoyo: true,
-        repeat: -1,
-        ease: 'sine.inOut',
-        delay: i * 0.4 // Staggered phases
+    // 2. Animate vertical mobile vine growth
+    const mobileVine = document.querySelector('.mobile-vine-main');
+    if (mobileVine) {
+        const length = mobileVine.getTotalLength();
+        gsap.set(mobileVine, { strokeDasharray: length, strokeDashoffset: length });
+
+        gsap.to(mobileVine, {
+            strokeDashoffset: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.process-vine-container',
+                start: 'top 40%',
+                end: 'bottom 80%',
+                scrub: 0.8
+            }
+        });
+    }
+
+    // 3. Stagger-reveal cards as the vine grows down
+    const steps = document.querySelectorAll('.process-step');
+    steps.forEach((step, i) => {
+        const pod = step.querySelector('.step-pod');
+        const text = step.querySelector('.step-text');
+
+        gsap.set(step, { opacity: 0, scale: 0.85, y: 30 });
+        if (pod) gsap.set(pod, { scale: 0.5, opacity: 0 });
+        if (text) gsap.set(text, { opacity: 0, y: 15 });
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: step,
+                start: 'top 75%',
+                toggleActions: 'play none none none',
+                onEnter: () => {
+                    step.classList.add('active'); // CSS branch reveal
+                }
+            }
+        })
+        .to(step, {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out'
+        })
+        .to(pod, {
+            scale: 1,
+            opacity: 1,
+            duration: 0.7,
+            ease: 'back.out(1.3)'
+        }, '-=0.3')
+        .to(text, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5
+        }, '-=0.4');
     });
 });
 

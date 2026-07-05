@@ -155,16 +155,66 @@ const init3DTilt = () => {
     });
 };
 
-// Run initializations
+// Run initializations with matchMedia
 const initProducts = () => {
-    initHorizontalScroll();
-    initIdleBobbing();
-    init3DTilt();
-    
+    let mm = gsap.matchMedia();
+
+    // DESKTOP & TABLET: Pinned horizontal scroll track with 3D tilts and bobbing
+    mm.add("(min-width: 769px)", () => {
+        initHorizontalScroll();
+        initIdleBobbing();
+        init3DTilt();
+    });
+
+    // MOBILE: Vertical stack reveal with simple scroll triggers and no pinning
+    mm.add("(max-width: 768px)", () => {
+        const cards = gsap.utils.toArray('.product-card');
+        
+        cards.forEach((card) => {
+            const media = card.querySelector('.product-media-wrapper');
+            const pedestal = card.querySelector('.pedestal-glow');
+            const info = card.querySelector('.product-info');
+
+            gsap.set(card, { opacity: 0, scale: 0.85, y: 50 });
+            if (pedestal) gsap.set(pedestal, { scale: 0 });
+            if (media) gsap.set(media, { y: 30, opacity: 0 });
+            if (info) gsap.set(info, { y: 20, opacity: 0 });
+
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            })
+            .to(card, { 
+                opacity: 1, 
+                scale: 1, 
+                y: 0, 
+                duration: 0.7, 
+                ease: "power2.out" 
+            })
+            .to(pedestal, { 
+                scale: 1, 
+                duration: 0.6, 
+                ease: "back.out(1.2)" 
+            }, "-=0.3")
+            .to(media, { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.5 
+            }, "-=0.3")
+            .to(info, { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.5 
+            }, "-=0.3");
+        });
+    });
+
     if (window.setupMagnetics) {
         window.setupMagnetics();
     }
-    
     ScrollTrigger.refresh();
 };
 
@@ -179,7 +229,6 @@ let resizeTimeout;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
-        initHorizontalScroll();
         ScrollTrigger.refresh();
     }, 200);
 });

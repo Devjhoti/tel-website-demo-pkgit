@@ -17,7 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Initial States
     gsap.set('.ground-line', { scaleX: 0, transformOrigin: 'center' });
     gsap.set('.leaf-group', { opacity: 0 });
-    gsap.set('.preloader-brand-logo', { opacity: 0, scale: 0.95 });
+    gsap.set('.preloader-brand-logo', { 
+        opacity: 0, 
+        scale: 0.95,
+        xPercent: -25,
+        yPercent: -50,
+        left: '50%',
+        top: '50%'
+    });
 
     // 3. Dynamically Generate Particles along the outlines
     const bottlePath = document.querySelector('.bottle-path');

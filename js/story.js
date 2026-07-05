@@ -133,51 +133,54 @@ const initStoryTriggers = () => {
     });
 };
 
-// 3. Winding Progress Vine SVG Draw Animation
+// 3. Winding Progress Vine SVG Draw Animation (Desktop only)
 const initWindingVine = () => {
-    const mainPath = document.querySelector('.story-vine-path-main');
-    const shadowPath = document.querySelector('.story-vine-path-shadow');
-    const section = document.querySelector('.story-section');
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 1025px)", () => {
+        const mainPath = document.querySelector('.story-vine-path-main');
+        const shadowPath = document.querySelector('.story-vine-path-shadow');
+        const section = document.querySelector('.story-section');
 
-    if (mainPath && shadowPath && section) {
-        const mainLength = mainPath.getTotalLength();
-        gsap.set(mainPath, { strokeDasharray: mainLength, strokeDashoffset: mainLength });
-        gsap.set(shadowPath, { strokeDasharray: mainLength, strokeDashoffset: mainLength });
+        if (mainPath && shadowPath && section) {
+            const mainLength = mainPath.getTotalLength();
+            gsap.set(mainPath, { strokeDasharray: mainLength, strokeDashoffset: mainLength });
+            gsap.set(shadowPath, { strokeDasharray: mainLength, strokeDashoffset: mainLength });
 
-        // Draw main and shadow vine in sync with section scroll progress
-        const vineTimeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                start: 'top 30%',
-                end: 'bottom 90%',
-                scrub: 1.5
+            // Draw main and shadow vine in sync with section scroll progress
+            const vineTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 30%',
+                    end: 'bottom 90%',
+                    scrub: 1.5
+                }
+            });
+
+            vineTimeline.to(mainPath, { strokeDashoffset: 0, ease: 'none' }, 0);
+            vineTimeline.to(shadowPath, { strokeDashoffset: 0, ease: 'none' }, 0.02);
+
+            // Branch paths sprouting dynamically at matching scroll offsets
+            const branch1 = document.querySelector('.story-branch-1');
+            const branch2 = document.querySelector('.story-branch-2');
+            const branch3 = document.querySelector('.story-branch-3');
+
+            if (branch1) {
+                const len = branch1.getTotalLength();
+                gsap.set(branch1, { strokeDasharray: len, strokeDashoffset: len });
+                vineTimeline.to(branch1, { strokeDashoffset: 0, duration: 0.25, ease: 'power1.out' }, 0.12);
             }
-        });
-
-        vineTimeline.to(mainPath, { strokeDashoffset: 0, ease: 'none' }, 0);
-        vineTimeline.to(shadowPath, { strokeDashoffset: 0, ease: 'none' }, 0.02);
-
-        // Branch paths sprouting dynamically at matching scroll offsets
-        const branch1 = document.querySelector('.story-branch-1');
-        const branch2 = document.querySelector('.story-branch-2');
-        const branch3 = document.querySelector('.story-branch-3');
-
-        if (branch1) {
-            const len = branch1.getTotalLength();
-            gsap.set(branch1, { strokeDasharray: len, strokeDashoffset: len });
-            vineTimeline.to(branch1, { strokeDashoffset: 0, duration: 0.25, ease: 'power1.out' }, 0.12);
+            if (branch2) {
+                const len = branch2.getTotalLength();
+                gsap.set(branch2, { strokeDasharray: len, strokeDashoffset: len });
+                vineTimeline.to(branch2, { strokeDashoffset: 0, duration: 0.25, ease: 'power1.out' }, 0.48);
+            }
+            if (branch3) {
+                const len = branch3.getTotalLength();
+                gsap.set(branch3, { strokeDasharray: len, strokeDashoffset: len });
+                vineTimeline.to(branch3, { strokeDashoffset: 0, duration: 0.25, ease: 'power1.out' }, 0.82);
+            }
         }
-        if (branch2) {
-            const len = branch2.getTotalLength();
-            gsap.set(branch2, { strokeDasharray: len, strokeDashoffset: len });
-            vineTimeline.to(branch2, { strokeDashoffset: 0, duration: 0.25, ease: 'power1.out' }, 0.48);
-        }
-        if (branch3) {
-            const len = branch3.getTotalLength();
-            gsap.set(branch3, { strokeDasharray: len, strokeDashoffset: len });
-            vineTimeline.to(branch3, { strokeDashoffset: 0, duration: 0.25, ease: 'power1.out' }, 0.82);
-        }
-    }
+    });
 };
 
 // 4. Global Mute Button Setup
